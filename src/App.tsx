@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/Header'
+import { Loader } from './components/Loader'
+import { useCurrencyContext } from './context/CurrencyContext'
+import styles from './app.module.css'
+import { Button } from './components/Button'
+import { CurrencyItem } from './components/CurrencyItem'
 
-function App() {
+export const App = () => {
+  const { fetchData, status } = useCurrencyContext()
+  const { isError, isLoading, isSuccess, statusMessage } = status
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      {isError && (
+        <div className={styles.center}>
+          <h2 className={styles.error}>
+            Error: {statusMessage || 'unknown error'}
+          </h2>
+          <Button onClick={fetchData}>Try Again</Button>
+        </div>
+      )}
+      {isLoading && <Loader className={styles.center}>Loading...</Loader>}
+      {isSuccess && (
+        <>
+          <Header />
+          <main className={styles.main}>
+            <CurrencyItem />
+          </main>
+        </>
+      )}
     </div>
-  );
+  )
 }
-
-export default App;

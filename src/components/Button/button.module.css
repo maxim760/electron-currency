@@ -1,0 +1,20 @@
+.btn {
+  background-color: #fff;
+  border-radius: 10px;
+  min-width: 150px;
+  padding: 10px 20px;
+  border: 1px solid teal;
+  color: teal;
+  transition: all 0.2s ease-in;
+  transition-property: box-shadow, color, background-color, transform;
+}
+.btn:hover {
+  color: white;
+  background-color: teal;
+}
+.btn:active {
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+}
+.btn:disabled {
+  cursor: not-allowed;
+}

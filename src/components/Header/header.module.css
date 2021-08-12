@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: grey;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.logoTitle {
+  font-size: 22px;
+  color: white;
+  padding: 5px;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+}
